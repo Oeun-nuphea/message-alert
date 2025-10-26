@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Message Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo-container">
+        <h1>Alert Message Demo</h1>
+        <p style="margin-bottom: 20px; color: #666;">Click the buttons to show different alert types:</p>
+        
+        <button class="btn-success" onclick="showAlert('success', 'Success!', 'Your changes have been saved successfully.')">
+            Show Success Alert
+        </button>
+        
+        <button class="btn-error" onclick="showAlert('error', 'Error!', 'Something went wrong. Please try again.')">
+            Show Error Alert
+        </button>
+        
+        <button class="btn-info" onclick="showAlert('info', 'Information', 'This is an informational message.')">
+            Show Info Alert
+        </button>
+        
+        <button class="btn-warning" onclick="showAlert('warning', 'Warning!', 'Please check your input before continuing.')">
+            Show Warning Alert
+        </button>
+    </div>
+
+    <!-- Alert Container -->
+    <div class="alert-container" id="alertContainer"></div>
+
+    <script>
+        // Icons for different alert types
+        const icons = {
+            success: '✓',
+            error: '✕',
+            info: 'ℹ',
+            warning: '⚠'
+        };
+
+        function showAlert(type = 'success', title = 'Success', message = 'Operation completed successfully', duration = 3000) {
+            const container = document.getElementById('alertContainer');
+            
+            // Create alert element
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            
+            alert.innerHTML = `
+                <div class="alert-icon">${icons[type]}</div>
+                <div class="alert-content">
+                    <div class="alert-title">${title}</div>
+                    <div class="alert-message">${message}</div>
+                </div>
+                <button class="alert-close" onclick="closeAlert(this)">×</button>
+                <div class="alert-progress"></div>
+            `;
+            
+            container.appendChild(alert);
+            
+            // Auto remove after duration
+            setTimeout(() => {
+                closeAlert(alert.querySelector('.alert-close'));
+            }, duration);
+        }
+
+        function closeAlert(button) {
+            const alert = button.closest('.alert');
+            alert.classList.add('hiding');
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 300);
+        }
+
+        // Example: Auto-show success on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showAlert('success', 'Welcome!', 'Page loaded successfully.');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
