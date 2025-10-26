@@ -11,19 +11,19 @@
         <h1>Alert Message Demo</h1>
         <p style="margin-bottom: 20px; color: #666;">Click the buttons to show different alert types:</p>
         
-        <button class="btn-success" onclick="showAlert('success', 'Success!', 'Your changes have been saved successfully.')">
+        <button class="btn-success" onclick="showAlert('success', 'Success!')">
             Show Success Alert
         </button>
         
-        <button class="btn-error" onclick="showAlert('error', 'Error!', 'Something went wrong. Please try again.')">
+        <button class="btn-error" onclick="showAlert('error', 'Error!')">
             Show Error Alert
         </button>
         
-        <button class="btn-info" onclick="showAlert('info', 'Information', 'This is an informational message.')">
+        <button class="btn-info" onclick="showAlert('info', 'Information')">
             Show Info Alert
         </button>
         
-        <button class="btn-warning" onclick="showAlert('warning', 'Warning!', 'Please check your input before continuing.')">
+        <button class="btn-warning" onclick="showAlert('warning', 'Warning!')">
             Show Warning Alert
         </button>
     </div>
@@ -40,7 +40,7 @@
             warning: '⚠'
         };
 
-        function showAlert(type = 'success', title = 'Success', message = 'Operation completed successfully', duration = 3000) {
+        function showAlert(type = 'success', title = 'Success', message = '', duration = 3000) {
             const container = document.getElementById('alertContainer');
             
             // Create alert element
