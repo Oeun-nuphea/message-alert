@@ -189,11 +189,11 @@ button:active {
     background: none;
     border: none;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     padding: 0;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,8 +213,10 @@ button:active {
     bottom: 0;
     left: 0;
     height: 3px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     animation: progress 3s linear;
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
 }
 
 @keyframes progress {
